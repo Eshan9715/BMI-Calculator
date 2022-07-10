@@ -1,6 +1,9 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'container_box.dart';
+import 'data_container.dart';
 
 const activeColor = Color(0xff0073dd);
 const inActiveColor = Color(0xFF212121);
@@ -54,7 +57,36 @@ class _MainScreenState extends State<MainScreen> {
         title: const Text("BMI Calculator"),
       ),
       body: Column(
-        children: [],
+        children: [
+          Expanded(
+            child: GestureDetector(
+              onTap: () {
+                setState(() {
+                  updateBoxColor(1);
+                });
+              },
+              child: ContainerBox(
+                boxColor: maleBoxColor,
+                childwidget: DataContainer(
+                    icon: FontAwesomeIcons.male, title: 'MALE'),
+              ),
+            ),
+          ),
+          Expanded(
+            child: GestureDetector(
+              onTap: () {
+                setState(() {
+                  updateBoxColor(2);
+                });
+              },
+              child: ContainerBox(
+                boxColor: femaleBoxColor,
+                childwidget: DataContainer(
+                    icon: FontAwesomeIcons.female, title: 'FEMALE'),
+              ),
+            ),
+          ),
+        ],
       ),
     );
   }
