@@ -205,8 +205,59 @@ class _MainScreenState extends State<MainScreen> {
                 ],
               ),
             ),
-          ],
-        ),
-      );
+
+          Expanded(
+            child: ContainerBox(
+              boxColor: inActiveColor,
+              childwidget: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  const Text(
+                    'AGE',
+                    style: textStyle1,
+                  ),
+                  Text(
+                    age.toString(),
+                    style: textStyle2,
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: <Widget>[
+                      FloatingActionButton(
+                        onPressed: () {
+                          setState(() {
+                            if (age < 100) {
+                              age++;
+                            }
+                          });
+                        },
+                        backgroundColor: activeColor,
+                        child: const Icon(FontAwesomeIcons.plus,
+                            color: Colors.white),
+                      ),
+                      const SizedBox(
+                        width: 10.0,
+                      ),
+                      FloatingActionButton(
+                        onPressed: () {
+                          setState(() {
+                            if (age > 0) {
+                              age--;
+                            }
+                          });
+                        },
+                        backgroundColor: activeColor,
+                        child: const Icon(FontAwesomeIcons.minus,
+                            color: Colors.white),
+                      ),
+                    ],
+                  ),
+                ],
+              ),
+            ),
+          ),
+        ],
+       ),
+    );
   }
 }
