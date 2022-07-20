@@ -202,9 +202,6 @@ class _MainScreenState extends State<MainScreen> {
                       ),
                     ),
                   ),
-                ],
-              ),
-            ),
 
           Expanded(
             child: ContainerBox(
@@ -257,7 +254,63 @@ class _MainScreenState extends State<MainScreen> {
             ),
           ),
         ],
-       ),
-    );
+      ),
+    ),
+
+          GestureDetector(
+              onTap: () {
+                setState(() {
+                  result = calculateBmi(weight, height);
+                  /*resultDetail = getInterpretation(bmi);*/
+                  showDialog(
+                      context: context,
+                      builder: (BuildContext contest) {
+                        return Dialog(
+                            backgroundColor: inActiveColor,
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(20.0),
+                            ),
+                            child: Container(
+                              color: inActiveColor,
+                              height: 200.0,
+                              margin: const EdgeInsets.all(10.0),
+                              child: Column(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: <Widget>[
+                                  const Text(
+                                    'Your BMI',
+                                    style: textStyle1,
+                                  ),
+                                  Text(
+                                    result.toString(),
+                                    style: textStyle2,
+                                  ),
+                                  /*Text(
+                                    resultDetail,
+                                    style: textStyle1,
+                                  ),*/
+                                ],
+                              ),
+                            ),
+                        );
+                      });
+                    });
+                  },
+                child: Container(
+                  width: double.infinity,
+                  height: 60.0,
+                  color: activeColor,
+                  margin: const EdgeInsets.only(top: 10.0),
+                  child:  const Center(
+                    child: Text(
+                      'Calculate',
+                      style: textStyle3,
+                    ),
+                  ),
+                ),
+              ),
+            ],
+          ),
+        );
   }
 }

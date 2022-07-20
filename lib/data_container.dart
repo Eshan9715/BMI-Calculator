@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 
 const textStyle1 = TextStyle(
   color: Color(0xFFffffff),
-  fontSize: 20.0
+  fontSize: 15.0
 );
 
 const textStyle2 = TextStyle(
@@ -14,7 +14,7 @@ const textStyle2 = TextStyle(
 
 const textStyle3 = TextStyle(
   color: Color(0xFFffffff),
-  fontSize: 30.0,
+  fontSize: 25.0,
   fontWeight: FontWeight.w900
 );
 
